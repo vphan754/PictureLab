@@ -85,6 +85,78 @@ public class Picture extends SimplePicture
     
   }
   
+  /** sets anything other than blue to 0**/
+    public void keepOnlyBlue()
+  {
+      Pixel[][] pixels = this.getPixels2D();
+      for (Pixel[] rowArray : pixels)
+      {
+          for (Pixel pixelObj: rowArray)
+          {
+              pixelObj.setGreen(0);
+              pixelObj.setRed(0);
+          }
+      }
+  }
+  
+    /** sets anything other than green to 0**/
+    public void keepOnlyGreen()
+  {
+      Pixel[][] pixels = this.getPixels2D();
+      for (Pixel[] rowArray : pixels)
+      {
+          for (Pixel pixelObj: rowArray)
+          {
+              pixelObj.setBlue(0);
+              pixelObj.setRed(0);
+          }
+      }
+  }
+  
+    /** sets anything other than red to 0**/
+    public void keepOnlyRed()
+  {
+      Pixel[][] pixels = this.getPixels2D();
+      for (Pixel[] rowArray : pixels)
+      {
+          for (Pixel pixelObj: rowArray)
+          {
+              pixelObj.setGreen(0);
+              pixelObj.setBlue(0);
+          }
+      }
+  }
+  
+  /** inverts colors **/
+  public void Negate()
+  {
+      Pixel[][] pixels = this.getPixels2D();
+      for (Pixel[] rowArray : pixels)
+      {
+          for (Pixel pixelObj: rowArray)
+          {
+              pixelObj.setRed(255-pixelObj.getRed());
+              pixelObj.setGreen(255-pixelObj.getGreen());
+              pixelObj.setBlue(255-pixelObj.getBlue());
+          }
+      }
+    }
+    
+  public void GrayScale()
+  {
+      Pixel[][] pixels = this.getPixels2D();
+      for (Pixel[] rowArray : pixels)
+      {
+          for (Pixel pixelObj: rowArray)
+          {
+              int gray = (pixelObj.getRed()+pixelObj.getBlue()+pixelObj.getGreen())/3;
+              pixelObj.setRed(gray);
+              pixelObj.setGreen(gray);
+              pixelObj.setBlue(gray);
+          }
+      }
+    }
+  
   /** Method to set the blue to 0 */
   public void zeroBlue()
   {
