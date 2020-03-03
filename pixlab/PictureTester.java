@@ -11,7 +11,7 @@ public class PictureTester
   /** Method to test zeroBlue */
   public static void testZeroBlue()
   {
-    Picture beach = new Picture("water.jpg");
+    Picture beach = new Picture("beach.jpg");
     beach.zeroBlue();
     beach.explore();
   }
@@ -59,12 +59,43 @@ public class PictureTester
   /** Method to test mirrorVertical */
   public static void testMirrorVertical()
   {
-    Picture caterpillar = new Picture("caterpillar.jpg");
-    caterpillar.explore();
+    Picture caterpillar = new Picture("redMotorcycle.jpg");
     caterpillar.mirrorVertical();
     caterpillar.explore();
   }
   
+  /** Method to test mirrorVerticalRighttoLeft() **/
+  public static void testMirrorVerticalRighttoLeft()
+  {
+      Picture caterpillar = new Picture("caterpillar.jpg");
+      caterpillar.mirrorVerticalRighttoLeft();
+      caterpillar.explore();
+    }
+  
+  /** Method to test mirrorHorizontal() **/
+  public static void testMirrorHorizontal()
+  {
+      Picture caterpillar = new Picture("redMotorcycle.jpg");
+      caterpillar.mirrorHorizontal();
+      caterpillar.explore();
+    }
+    
+     /** Method to test mirrorHorizontalBottoTop()**/
+  public static void testMirrorHorizontalBottoTop()
+  {
+      Picture caterpillar = new Picture("redMotorcycle.jpg");
+      caterpillar.mirrorHorizontalBottoTop();
+      caterpillar.explore();
+    }
+    
+    /** Method to test mirrorDiagonal() **/
+  public static void testMirrorDiagonal()
+  {
+      Picture bruh = new Picture("bruh.jpg");
+      bruh.mirrorDiagonal();
+      bruh.explore();
+    }
+    
   /** Method to test mirrorTemple */
   public static void testMirrorTemple()
   {
@@ -72,6 +103,22 @@ public class PictureTester
     temple.explore();
     temple.mirrorTemple();
     temple.explore();
+  }
+  
+    /** Method to test snowman4() */
+  public static void testSnowman4()
+  {
+    Picture sno = new Picture("snowman.jpg");
+    sno.snowman4();
+    sno.explore();
+  }
+  
+      /** Method to test anotherSeagull() */
+  public static void testAnotherSeagull()
+  {
+    Picture gull = new Picture("seagull.jpg");
+    gull.anotherSeagull();
+    gull.explore();
   }
   
   /** Method to test the collage method */
