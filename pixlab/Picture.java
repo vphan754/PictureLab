@@ -385,6 +385,32 @@ public class Picture extends SimplePicture
     this.write("collage.jpg");
   }
   
+    /** copy from the passed fromPic to the
+    * specified startRow and startCol in the
+    * current picture
+    * @param fromPic the picture to copy from
+    * @param startRow the start row to copy to
+    * @param startCol the start col to copy to
+    * @param endRow the end row to copy to
+    * @param endCol the end col to copy to
+    */
+  public void copyPortion(Picture fromPic, 
+                 int startRow, int startCol, int endRow, int endCol, int toRow, int toCol)
+  {
+    Pixel fromPixel = null;
+    Pixel toPixel = null;
+    Pixel[][] toPixels = this.getPixels2D();
+    Pixel[][] fromPixels = fromPic.getPixels2D();
+    for (int currentRow = startRow; currentRow <= endRow; currentRow++)
+    {
+      for (int currentCol = startCol; currentCol <= endCol; currentCol++)
+      { 
+        fromPixel = fromPixels[currentRow][currentCol];
+        toPixel = toPixels[toRow][toCol];
+        toPixel.setColor(fromPixel.getColor());
+      }
+    }   
+  }
   
   /** Method to show large changes in color 
     * @param edgeDist the distance for finding edges

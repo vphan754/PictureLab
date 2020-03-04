@@ -121,6 +121,17 @@ public class PictureTester
     gull.explore();
   }
   
+  /** Method to test the copyPortion method **/
+  public static void testCopyPortion(String fromImage, String toImage,
+                 int startRow, int startCol, int endRow, int endCol, int toRow, int toCol)
+  {
+    Picture from = new Picture(fromImage + ".jpg");
+    Picture to = new Picture(toImage + ".jpg");
+    to.copyPortion(from, startRow, startCol, endRow, endCol, toRow, toCol);
+    to.write(fromImage+" "+toImage+".jpg");
+    to.explore();
+  }  
+  
   /** Method to test the collage method */
   public static void testCollage()
   {
