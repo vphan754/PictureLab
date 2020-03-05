@@ -9,89 +9,89 @@
 public class PictureTester
 {
   /** Method to test zeroBlue */
-  public static void testZeroBlue()
+  public static void testZeroBlue(String pic)
   {
-    Picture beach = new Picture("beach.jpg");
+    Picture beach = new Picture(pic+".jpg");
     beach.zeroBlue();
     beach.explore();
   }
   
   /** Method to testKeepOnlyBlue() **/
-  public static void testKeepOnlyBlue()
+  public static void testKeepOnlyBlue(String pic)
   {
-      Picture beach = new Picture("beach.jpg");
+      Picture beach = new Picture(pic+".jpg");
       beach.keepOnlyGreen();
       beach.explore();
     }
   
       /** Method to testKeepOnlyGreen() **/
-  public static void testKeepOnlyGreen()
+  public static void testKeepOnlyGreen(String pic)
   {
-      Picture beach = new Picture("beach.jpg");
+      Picture beach = new Picture(pic+".jpg");
       beach.keepOnlyGreen();
       beach.explore();
     }
     
       /** Method to testKeepOnlyRed() **/
-  public static void testKeepOnlyRed()
+  public static void testKeepOnlyRed(String pic)
   {
-      Picture beach = new Picture("beach.jpg");
+      Picture beach = new Picture(pic+".jpg");
       beach.keepOnlyRed();
       beach.explore();
     }
     
     /** Method to test Negate() **/
-   public static void testNegate()
+   public static void testNegate(String pic)
    {
-       Picture snow = new Picture("wall.jpg");
+       Picture snow = new Picture(pic+".jpg");
        snow.Negate();
        snow.explore();
     }
     
     /** Method to test grayscale() **/
-    public static void testGrayScale()
+    public static void testGrayScale(String pic)
     {
-        Picture snow = new Picture("snowman.jpg");
+        Picture snow = new Picture(pic+".jpg");
         snow.GrayScale();
         snow.explore();
     }
     
   /** Method to test mirrorVertical */
-  public static void testMirrorVertical()
+  public static void testMirrorVertical(String pic)
   {
-    Picture caterpillar = new Picture("redMotorcycle.jpg");
+    Picture caterpillar = new Picture(pic + ".jpg");
     caterpillar.mirrorVertical();
     caterpillar.explore();
   }
   
   /** Method to test mirrorVerticalRighttoLeft() **/
-  public static void testMirrorVerticalRighttoLeft()
+  public static void testMirrorVerticalRighttoLeft(String pic)
   {
-      Picture caterpillar = new Picture("caterpillar.jpg");
+      Picture caterpillar = new Picture(pic + ".jpg");
       caterpillar.mirrorVerticalRighttoLeft();
       caterpillar.explore();
     }
   
   /** Method to test mirrorHorizontal() **/
-  public static void testMirrorHorizontal()
+  public static void testMirrorHorizontal(String pic)
   {
-      Picture caterpillar = new Picture("redMotorcycle.jpg");
+      Picture caterpillar = new Picture(pic + ".jpg");
       caterpillar.mirrorHorizontal();
       caterpillar.explore();
     }
     
      /** Method to test mirrorHorizontalBottoTop()**/
-  public static void testMirrorHorizontalBottoTop()
+  public static void testMirrorHorizontalBottoTop(String pic)
   {
-      Picture caterpillar = new Picture("redMotorcycle.jpg");
+      Picture caterpillar = new Picture(pic+".jpg");
       caterpillar.mirrorHorizontalBottoTop();
       caterpillar.explore();
     }
     
     /** Method to test mirrorDiagonal() **/
-  public static void testMirrorDiagonal()
+  public static void testMirrorDiagonal(String pic)
   {
-      Picture bruh = new Picture("bruh.jpg");
+      Picture bruh = new Picture(pic+".jpg");
       bruh.mirrorDiagonal();
       bruh.explore();
     }
@@ -141,12 +141,27 @@ public class PictureTester
   }
   
   /** Method to test edgeDetection */
-  public static void testEdgeDetection()
+  public static void testEdgeDetection(String pic)
   {
-    Picture swan = new Picture("swan.jpg");
+    Picture swan = new Picture(pic+".jpg");
     swan.edgeDetection(10);
     swan.explore();
   }
+  
+    /** Method to test edgeDetectionBothAxis */
+  public static void testEdgeDetectionBothAxis(String pic)
+  {
+    Picture swan = new Picture(pic+".jpg");
+    swan.edgeDetectionBothAxis(10);
+    swan.explore();
+  }
+  
+  public static void testInterpolate(String pic)
+  {
+      Picture picture = new Picture(pic+".jpg");
+      picture.mainInterpolate();
+      picture.explore();
+    }
   
   /** Main method for testing.  Every class can have a main
     * method in Java */
@@ -156,7 +171,7 @@ public class PictureTester
     // and comment out the ones you don't want
     // to run
     //testZeroBlue();
-    testKeepOnlyBlue();
+    //testKeepOnlyBlue();
     //testKeepOnlyRed();
     //testKeepOnlyGreen();
     //testNegate();

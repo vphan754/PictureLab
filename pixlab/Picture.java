@@ -396,15 +396,20 @@ public class Picture extends SimplePicture
     */
   public void copyPortion(Picture fromPic, 
                  int startRow, int startCol, int endRow, int endCol, int toRow, int toCol)
-  {
+  {   
     Pixel fromPixel = null;
     Pixel toPixel = null;
     Pixel[][] toPixels = this.getPixels2D();
     Pixel[][] fromPixels = fromPic.getPixels2D();
-    for (int currentRow = startRow; currentRow <= endRow; currentRow++)
+    
+    if (startRow > fromPixels.length || startCol > fromPixels[0].length) { System.out.println("Out of bounds!"); return;}
+    
+    for (int currentRow = startRow; currentRow < endRow; currentRow++)
     {
-      for (int currentCol = startCol; currentCol <= endCol; currentCol++)
+      for (int currentCol = startCol; currentCol < endCol; currentCol++)
       { 
+        if ((endRow-currentRow)>=toPixels.length-1-toRow || (endCol-currentCol)>=toPixels[0].length-1-toCol) { System.out.println("Out of bounds!"); return;}
+          
         fromPixel = fromPixels[currentRow][currentCol];
         toPixel = toPixels[toRow][toCol];
         toPixel.setColor(fromPixel.getColor());
@@ -438,6 +443,65 @@ public class Picture extends SimplePicture
     }
   }
   
+  /** Method to show large changes in color 
+    * @param edgeDist the distance for finding edges
+    */
+  public void edgeDetectionBothAxis(int edgeDist)
+  {
+    Pixel leftPixel = null;
+    Pixel rightPixel = null;
+    Pixel bottomPixel = null;
+    Pixel[][] pixels = this.getPixels2D();
+    Color rightColor = null;
+    Color bottomColor = null;
+    for (int row = 0; row < pixels.length-1; row++)
+    {
+      for (int col = 0; 
+           col < pixels[0].length-1; col++)
+      {
+        leftPixel = pixels[row][col];
+        rightPixel = pixels[row][col+1];
+        rightColor = rightPixel.getColor();
+        bottomPixel = pixels[row+1][col];
+        bottomColor = bottomPixel.getColor();
+        if (leftPixel.colorDistance(rightColor) > 
+            edgeDist || leftPixel.colorDistance(bottomColor) > edgeDist)
+          leftPixel.setColor(Color.BLACK);
+        else
+          leftPixel.setColor(Color.WHITE);
+      }
+    }
+  }
+  
+  /** Method for interpolating a bigger image **/
+  public void mainInterpolate()
+  {
+      doubleAndSplit();
+  }
+  
+  public void doubleAndSplit()
+  {
+      Pixel fromPixel = null;
+      Pixel toPixel = null;
+      Pixel[][] pixels = this.getPixels2D();
+      Pixel[][] pixelsButBigger = new Pixel[pixels.length*2][pixels[0].length*2];
+      for (int row = 0; row<pixels.length; row++)
+      {
+          for (int col = 0; col<pixels[0].length; col++)
+          {
+              fromPixel = pixels[row][col];
+              toPixel=pixelsButBigger[row*2][col*2];
+              toPixel.setColor(fromPixel.getColor());
+              
+              //make a new picture file and set these values to it or something
+          }
+      }
+  } 
+  
+  public static void interpolate()
+  {
+      
+  }
   
   /* Main method for testing - each class in Java can have a main 
    * method 
